@@ -1,4 +1,6 @@
-package com.johnturkson.tools.text
+package com.johnturkson.text
+
+import java.util.Locale
 
 fun ByteArray.encodeBase32(): String {
     val radix = 0x2
@@ -48,10 +50,10 @@ fun String.decodeBase32(): ByteArray {
     val letterOffset = 65
     val digitOffset = 24
     
-    return this.toUpperCase()
+    return this.uppercase(Locale.ROOT)
         .dropLastWhile { base -> base == basePadding }
         .map { base -> if (base.isLetter()) base - letterOffset else base - digitOffset }
-        .map { base -> base.toInt() }
+        .map { base -> base.code }
         .map { base -> base.toString(radix) }
         .joinToString(baseSeparator) { base -> base.padStart(baseLength, baseExtension) }
         .chunked(byteLength)

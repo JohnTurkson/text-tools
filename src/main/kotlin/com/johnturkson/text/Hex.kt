@@ -1,4 +1,4 @@
-package com.johnturkson.tools.text
+package com.johnturkson.text
 
 fun ByteArray.toHexString(): String {
     val radix = 0x10
