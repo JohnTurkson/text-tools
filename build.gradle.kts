@@ -1,11 +1,11 @@
 plugins {
-    kotlin("jvm") version "1.5.20"
+    kotlin("jvm") version "1.6.10"
     `java-library`
     `maven-publish`
 }
 
 group = "com.johnturkson.text"
-version = "0.0.1"
+version = "0.0.3"
 
 repositories {
     mavenCentral()
